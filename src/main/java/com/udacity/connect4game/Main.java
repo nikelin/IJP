@@ -1,0 +1,25 @@
+package com.udacity.connect4game;
+
+import com.udacity.connect4game.strategy.MiniMaxStrategyImpl;
+import com.udacity.connect4game.strategy.RandomStrategyImpl;
+import com.udacity.connect4game.udacityAgents.BrilliantAgent;
+
+/**
+ * The main driver of the program. This file will create the game, create the two agents,
+ * and create the window for the game. After that, Connect4Frame runs everything.
+ * 
+ * You should only modify this class to change which agents are playing.
+ */
+public class Main
+{
+
+    public static void main(String[] args)
+    {
+        Connect4Game game = new Connect4Game(7, 6); // create the game; these sizes can be altered for larger or smaller games
+        Agent redPlayer = new BrilliantAgent(game, true);
+        Agent yellowPlayer = new MyAgent(new MiniMaxStrategyImpl(), game, false); // create the yellow player, any subclass of Agent
+        
+        Connect4Frame mainframe = new Connect4Frame(game, redPlayer, yellowPlayer); // create the game window
+    }
+}
+    
